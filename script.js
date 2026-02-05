@@ -1,82 +1,98 @@
 
 /**
  * CATALOGO DIGITAL - JAVASCRIPT PURO
- * Versión 2.0: Foco en Visualización Detallada
+ * Versión 3.0: Enfoque en Detalle de Producto y UX Premium
  */
 
-// 1. BASE DE DATOS
+// 1. BASE DE DATOS MEJORADA
 const products = [
     {
         id: 1,
         name: "Auriculares Wireless Pro",
-        description: "Cancelación de ruido activa y audio espacial de alta fidelidad. Estos auriculares ofrecen una experiencia inmersiva sin precedentes con hasta 40 horas de autonomía y carga rápida mediante USB-C.",
+        shortDesc: "Cancelación de ruido activa y audio espacial.",
+        description: "Experimenta la cúspide del sonido con los Wireless Pro. Equipados con drivers de 40mm personalizados, ofrecen bajos profundos y agudos cristalinos. La cancelación de ruido adaptativa analiza el entorno 200 veces por segundo para aislarte completamente. Ideales para viajes largos gracias a su diseño ergonómico de espuma con memoria y acabados en cuero vegano de alta calidad.",
         price: 299.99,
         category: "Electrónica",
         imageUrl: "https://images.pexels.com/photos/1649771/pexels-photo-1649771.jpeg?auto=compress&cs=tinysrgb&w=800",
-        specs: ["Bluetooth 5.2", "40h Batería", "Carga Rápida", "Micrófono Beamforming"]
+        specs: ["Bluetooth 5.2 de baja latencia", "40 horas de autonomía real", "Carga ultra rápida (10 min = 3h)", "Resistencia al sudor IPX4"],
+        features: ["Modo Transparencia", "Detección de uso", "Ecualización Adaptativa"]
     },
     {
         id: 2,
         name: "Smartwatch Series X",
-        description: "Monitor de salud avanzado con oxímetro y GPS integrado. Diseñado para resistir los entornos más exigentes, cuenta con certificación de resistencia al agua 50m y cristal de zafiro.",
+        shortDesc: "Monitor de salud avanzado y GPS.",
+        description: "Más que un reloj, es un compañero de vida. La Series X redefine el monitoreo de salud con un sensor eléctrico de corazón (ECG) y un sensor de oxígeno en sangre de grado médico. Su pantalla LTPO OLED brilla hasta los 2000 nits, permitiendo una visibilidad perfecta bajo el sol directo. La caja de titanio de grado aeroespacial ofrece el equilibrio perfecto entre peso y durabilidad extrema.",
         price: 349.00,
         category: "Electrónica",
         imageUrl: "https://images.pexels.com/photos/437037/pexels-photo-437037.jpeg?auto=compress&cs=tinysrgb&w=800",
-        specs: ["Pantalla OLED", "Sensor ECG", "GPS Integrado", "Resistente 50m"]
+        specs: ["Pantalla Siempre Activa", "Resistencia al agua 100m", "Autonomía de 3 días", "Procesador Dual-Core S9"],
+        features: ["Detección de caídas", "Llamadas de emergencia", "App de entrenamiento Pro"]
     },
     {
         id: 3,
         name: "Cafetera Minimalist",
-        description: "Sabor gourmet en un diseño compacto de acero inoxidable. Su sistema de presión constante garantiza una extracción perfecta del aroma del grano en cada taza, ideal para baristas hogareños.",
+        shortDesc: "Sabor gourmet en diseño compacto.",
+        description: "Para los puristas del café. Esta cafetera utiliza un sistema de extracción por presión variable que emula el método manual de los mejores baristas. Su caldera de calentamiento rápido alcanza la temperatura ideal en solo 30 segundos. El cuerpo de acero cepillado no solo es elegante, sino que mantiene el calor de forma eficiente, asegurando que cada taza sea tan perfecta como la anterior.",
         price: 89.50,
         category: "Hogar",
         imageUrl: "https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=800",
-        specs: ["Acero Inoxidable", "15 Bares Presión", "Filtro Permanente", "Apagado Auto"]
+        specs: ["Presión de 19 bares", "Depósito de 1.5 litros", "Programable", "Sistema antigoteo"],
+        features: ["Espumador de leche", "Ahorro de energía", "Fácil limpieza"]
     },
     {
         id: 4,
         name: "Mochila Urban Tech",
-        description: "Protección total para tu laptop con puerto de carga USB. Construida con materiales reciclados repelentes al agua, cuenta con compartimentos secretos y diseño ergonómico para largas jornadas.",
+        shortDesc: "Protección total para tu equipo.",
+        description: "Diseñada para el nómada digital moderno. La Urban Tech combina seguridad y organización. Su estructura externa es de material balístico 1680D, prácticamente indestructible y totalmente impermeable. Cuenta con un puerto de carga externo integrado y un panel trasero transpirable que evita el calor en trayectos largos. El compartimento para portátil está suspendido para evitar golpes accidentales contra el suelo.",
         price: 75.00,
         category: "Accesorios",
         imageUrl: "https://images.pexels.com/photos/1262692/pexels-photo-1262692.jpeg?auto=compress&cs=tinysrgb&w=800",
-        specs: ["Tela Cordura", "Puerto USB", "Antirrobo", "Compartimento 16\""]
+        specs: ["Capacidad 25L", "Cremalleras YKK selladas", "Bolsillo antirrobo", "Panel para maleta"],
+        features: ["Puerto USB integrado", "Reflectores nocturnos", "Divisores internos"]
     },
     {
         id: 5,
         name: "Lámpara LED Inteligente",
-        description: "Millones de colores controlados desde tu smartphone o mediante comandos de voz. Ajusta la temperatura de color para lectura o crea ambientes vibrantes para fiestas con un solo toque.",
+        shortDesc: "Iluminación ambiental personalizable.",
+        description: "Transforma tu espacio con luz. Esta lámpara inteligente no solo cambia de color, sino que sincroniza su ritmo con tu música o contenido de pantalla. Con una esperanza de vida de 25,000 horas, es una inversión a largo plazo para tu hogar. Compatible con todos los asistentes de voz, permite crear rutinas de 'despertar' que simulan el amanecer para un inicio de día natural.",
         price: 45.99,
         category: "Hogar",
         imageUrl: "https://images.pexels.com/photos/1112598/pexels-photo-1112598.jpeg?auto=compress&cs=tinysrgb&w=800",
-        specs: ["RGB + W", "App Control", "WiFi 2.4GHz", "Consumo A++"]
+        specs: ["16 millones de colores", "Dimeable del 1% al 100%", "Conexión WiFi/Bluetooth", "Bajo consumo 9W"],
+        features: ["Modo lectura", "Temporizador", "Control por voz"]
     },
     {
         id: 6,
         name: "Cámara Pro Mirrorless",
-        description: "Captura video 4K con una nitidez cinematográfica profesional. Su sensor Full Frame permite un rendimiento excepcional en bajas luces y una profundidad de campo asombrosa.",
+        shortDesc: "Video 4K y nitidez cinematográfica.",
+        description: "La herramienta definitiva para creadores de contenido. Su sensor CMOS de 24.2 MP captura detalles ínfimos incluso en la oscuridad. El sistema de enfoque automático por IA detecta ojos humanos y animales instantáneamente, asegurando que nunca pierdas una toma. Graba en 4K a 60fps sin recorte, proporcionando ese look cinematográfico profesional que buscas para tus proyectos.",
         price: 899.00,
         category: "Electrónica",
         imageUrl: "https://images.pexels.com/photos/51383/photo-camera-subject-photographer-51383.jpeg?auto=compress&cs=tinysrgb&w=800",
-        specs: ["Full Frame", "Video 4K60", "Estabilizador 5 ejes", "Dual Card Slot"]
+        specs: ["ISO hasta 51200", "Ráfaga de 10 fps", "Pantalla táctil articulada", "Entrada de micro Pro"],
+        features: ["Streaming directo", "Perfil de color Log", "Cuerpo sellado"]
     },
     {
         id: 7,
         name: "Gafas de Sol Titanio",
-        description: "Lentes polarizados con montura ultra ligera de titanio aeroespacial. Combinan la máxima durabilidad con un peso casi imperceptible, protegiendo tus ojos con estilo atemporal.",
+        shortDesc: "Estilo atemporal y durabilidad.",
+        description: "Elegancia que se siente en el peso. Fabricadas con una aleación exclusiva de titanio, estas gafas son tan ligeras que olvidarás que las llevas puestas. Las lentes polarizadas cuentan con 7 capas de recubrimiento, incluyendo una capa hidrofóbica que repele el agua y la grasa. El diseño aviador ha sido refinado con patillas de ajuste flexible que se adaptan a cualquier contorno de rostro sin presionar.",
         price: 120.00,
         category: "Moda",
         imageUrl: "https://images.pexels.com/photos/46710/pexels-photo-46710.jpeg?auto=compress&cs=tinysrgb&w=800",
-        specs: ["Titanio", "UV400", "Lentes Polarizados", "Antiscratch"]
+        specs: ["Protección 100% UVA/UVB", "Montura ultra-flexible", "Almohadillas hipoalergénicas", "Incluye estuche de cuero"],
+        features: ["Lentes irrompibles", "Visión de alto contraste", "Acabado mate"]
     },
     {
         id: 8,
         name: "Teclado Mecánico RGB",
-        description: "Interruptores táctiles silenciosos con respuesta ultra rápida para trabajo o gaming. Su base de aluminio y teclas de PBT garantizan una durabilidad de años sin desgaste de letras.",
+        shortDesc: "Respuesta táctil y durabilidad.",
+        description: "Precisión en cada pulsación. Este teclado mecánico utiliza interruptores premium con una vida útil de 80 millones de clics. La placa superior de aluminio cepillado no solo le da un peso sólido, sino que evita cualquier flexión durante el uso intensivo. La iluminación RGB es totalmente programable mediante software, permitiendo capas de efectos personalizados para mejorar tu productividad o inmersión.",
         price: 159.00,
         category: "Electrónica",
         imageUrl: "https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=800",
-        specs: ["Switches Brown", "Aluminio CNC", "Hot Swap", "Layout ISO"]
+        specs: ["Polling rate de 1000Hz", "Cable trenzado removible", "Teclas PBT doble inyección", "N-Key Rollover"],
+        features: ["Macros grabables", "Reposamuñecas magnético", "Rueda de volumen dedicada"]
     }
 ];
 
@@ -92,14 +108,13 @@ const productCount = document.getElementById('product-count');
 const emptyState = document.getElementById('empty-state');
 const resetBtn = document.getElementById('reset-filters');
 
-// Modal Selectors
 const modal = document.getElementById('product-modal');
 const modalBackdrop = document.getElementById('modal-backdrop');
 const modalContent = document.getElementById('modal-content');
 const modalBody = document.getElementById('modal-body');
 const closeModal = document.getElementById('close-modal');
 
-// 4. FUNCIONES
+// 4. FUNCIONES PRINCIPALES
 function init() {
     renderCategories();
     renderProducts();
@@ -157,7 +172,7 @@ function renderProducts() {
             </div>
             
             <div class="p-6 flex flex-col flex-grow">
-                <div class="mb-4">
+                <div class="mb-3">
                     <h3 class="text-lg font-extrabold text-primary leading-tight group-hover:text-accent transition-colors">
                         ${product.name}
                     </h3>
@@ -167,15 +182,15 @@ function renderProducts() {
                 </div>
                 
                 <p class="text-sm text-slate-500 mb-6 line-clamp-2 leading-relaxed flex-grow font-medium">
-                    ${product.description}
+                    ${product.shortDesc || product.description}
                 </p>
                 
                 <button 
                     onclick="openProductDetails(${product.id})"
-                    class="w-full py-3.5 px-4 bg-slate-50 text-slate-900 text-[10px] font-black uppercase tracking-[0.15em] rounded-2xl border border-slate-200 hover:bg-primary hover:text-white hover:border-primary active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-2"
+                    class="w-full py-3.5 px-4 bg-slate-50 text-slate-900 text-[10px] font-black uppercase tracking-[0.15em] rounded-2xl border border-slate-200 hover:bg-primary hover:text-white hover:border-primary active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-2 group/btn"
                 >
-                    <span>Ver Detalles Técnicos</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <span>Ver Detalles</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transform group-hover/btn:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                 </button>
@@ -184,44 +199,85 @@ function renderProducts() {
     `).join('');
 }
 
-// 5. MODAL LOGIC
+// 5. MODAL LOGIC (DETALLES AMPLIADOS)
 function openProductDetails(id) {
     const product = products.find(p => p.id === id);
     if (!product) return;
 
     modalBody.innerHTML = `
-        <div class="flex flex-col md:flex-row">
-            <div class="w-full md:w-1/2 h-[300px] md:h-auto max-h-[500px] overflow-hidden">
-                <img src="${product.imageUrl}" alt="${product.name}" class="w-full h-full object-cover">
+        <div class="flex flex-col lg:flex-row max-h-[90vh] lg:max-h-none overflow-y-auto lg:overflow-visible">
+            <!-- Imagen Lateral -->
+            <div class="w-full lg:w-5/12 h-[300px] lg:h-auto overflow-hidden sticky lg:relative top-0 z-10">
+                <img src="${product.imageUrl}" alt="${product.name}" class="w-full h-full object-cover shadow-xl">
+                <div class="absolute bottom-6 left-6 lg:hidden">
+                    <span class="bg-white/90 backdrop-blur-md text-[10px] font-black px-4 py-2 rounded-full uppercase tracking-widest shadow-lg">
+                        ${product.category}
+                    </span>
+                </div>
             </div>
-            <div class="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
-                <div class="inline-block bg-accent/10 text-accent text-[10px] font-black px-3 py-1.5 rounded-full uppercase tracking-widest mb-6 w-max">
+
+            <!-- Contenido de Detalles -->
+            <div class="w-full lg:w-7/12 p-8 lg:p-14 bg-white">
+                <div class="hidden lg:inline-block bg-accent/10 text-accent text-[10px] font-black px-4 py-2 rounded-full uppercase tracking-widest mb-6">
                     ${product.category}
                 </div>
-                <h2 class="text-4xl font-black text-primary mb-2 leading-tight">${product.name}</h2>
-                <p class="text-3xl font-extrabold text-accent mb-6">$${product.price.toFixed(2)}</p>
                 
-                <div class="h-px bg-slate-100 w-full mb-6"></div>
+                <h2 class="text-4xl lg:text-5xl font-black text-primary mb-3 leading-[1.1] tracking-tight">
+                    ${product.name}
+                </h2>
+                <p class="text-3xl font-extrabold text-accent mb-8 leading-none">$${product.price.toFixed(2)}</p>
                 
-                <h4 class="text-xs font-black text-primary uppercase tracking-widest mb-4">Descripción General</h4>
-                <p class="text-slate-500 leading-relaxed font-medium mb-8 text-sm md:text-base">
-                    ${product.description}
-                </p>
+                <div class="space-y-8">
+                    <!-- Descripción Detallada -->
+                    <section>
+                        <h4 class="text-[11px] font-black text-slate-400 uppercase tracking-[0.2em] mb-4">Análisis del Producto</h4>
+                        <p class="text-slate-600 leading-relaxed font-medium text-base lg:text-lg">
+                            ${product.description}
+                        </p>
+                    </section>
 
-                <h4 class="text-xs font-black text-primary uppercase tracking-widest mb-4">Especificaciones Destacadas</h4>
-                <div class="grid grid-cols-2 gap-3">
-                    ${(product.specs || []).map(spec => `
-                        <div class="flex items-center gap-2 text-slate-600 text-xs font-bold">
-                            <div class="w-1.5 h-1.5 rounded-full bg-accent"></div>
-                            ${spec}
-                        </div>
-                    `).join('')}
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
+                        <!-- Especificaciones -->
+                        <section>
+                            <h4 class="text-[11px] font-black text-slate-400 uppercase tracking-[0.2em] mb-4">Especificaciones</h4>
+                            <ul class="space-y-3">
+                                ${(product.specs || []).map(spec => `
+                                    <li class="flex items-start gap-3 text-slate-700 text-sm font-bold">
+                                        <svg class="h-5 w-5 text-accent flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                                        </svg>
+                                        <span>${spec}</span>
+                                    </li>
+                                `).join('')}
+                            </ul>
+                        </section>
+
+                        <!-- Características Extra -->
+                        <section>
+                            <h4 class="text-[11px] font-black text-slate-400 uppercase tracking-[0.2em] mb-4">Valor Añadido</h4>
+                            <div class="flex flex-wrap gap-2">
+                                ${(product.features || []).map(feat => `
+                                    <span class="bg-slate-50 text-slate-500 text-[10px] font-bold px-3 py-1.5 rounded-lg border border-slate-100">
+                                        ${feat}
+                                    </span>
+                                `).join('')}
+                            </div>
+                        </section>
+                    </div>
+                </div>
+
+                <div class="mt-12 pt-8 border-t border-slate-100">
+                    <button 
+                        onclick="closeProductModal()"
+                        class="px-8 py-4 bg-primary text-white text-[10px] font-black uppercase tracking-[0.2em] rounded-2xl hover:bg-accent transition-all duration-300 shadow-xl shadow-slate-200"
+                    >
+                        Volver al Catálogo
+                    </button>
                 </div>
             </div>
         </div>
     `;
 
-    // Show modal
     modal.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
     
@@ -264,18 +320,15 @@ function setupEventListeners() {
         renderProducts();
     });
 
-    // Modal Events
     closeModal.addEventListener('click', closeProductModal);
     modalBackdrop.addEventListener('click', closeProductModal);
     
-    // Close on Escape
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') closeProductModal();
     });
 }
 
-// Export function for global scope (onclick in HTML)
 window.openProductDetails = openProductDetails;
+window.closeProductModal = closeProductModal;
 
-// Iniciar App
 document.addEventListener('DOMContentLoaded', init);
