@@ -45,6 +45,10 @@
             to { opacity: 1; transform: translateY(0); }
         }
         .animate-fade-in { animation: fadeIn 0.5s ease-out forwards; }
+        
+        /* Modal Animation */
+        .modal-enter { opacity: 0; transform: scale(0.95); }
+        .modal-enter-active { opacity: 1; transform: scale(1); transition: all 0.3s ease-out; }
     </style>
 <script type="importmap">
 {
@@ -57,7 +61,7 @@
 </head>
 <body>
     <!-- Header / Navbar -->
-    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-slate-200">
+    <header class="sticky top-0 z-40 bg-white/80 backdrop-blur-xl border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <!-- Logo -->
@@ -67,7 +71,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                         </svg>
                     </div>
-                    <span class="text-xl font-extrabold tracking-tight text-primary hidden sm:block">TECH<span class="text-accent">CATALOG</span></span>
+                    <span class="text-xl font-extrabold tracking-tight text-primary hidden sm:block uppercase">TECH<span class="text-accent">CATALOG</span></span>
                 </div>
 
                 <!-- Buscador -->
@@ -87,18 +91,12 @@
                     </div>
                 </div>
 
-                <!-- User Icons -->
+                <!-- Icons -->
                 <div class="flex items-center gap-2 sm:gap-4">
                     <button class="p-2 text-slate-500 hover:text-accent transition-colors">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                         </svg>
-                    </button>
-                    <button class="relative p-2 text-slate-500 hover:text-accent transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-                        </svg>
-                        <span class="absolute top-0 right-0 h-4 w-4 bg-accent text-white text-[10px] font-bold rounded-full flex items-center justify-center ring-2 ring-white">2</span>
                     </button>
                 </div>
             </div>
@@ -116,18 +114,17 @@
         <!-- Encabezado Sección -->
         <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 gap-4">
             <div>
-                <h2 class="text-3xl font-extrabold text-primary mb-2 tracking-tight">Nuestra Colección</h2>
-                <p class="text-slate-500 font-medium">Tecnología premium seleccionada para ti.</p>
+                <h2 class="text-3xl font-extrabold text-primary mb-2 tracking-tight uppercase">Catálogo Premium</h2>
+                <p class="text-slate-500 font-medium">Explora las especificaciones detalladas de nuestra colección.</p>
             </div>
             <div class="bg-white px-4 py-2 rounded-xl border border-slate-200 shadow-sm inline-flex items-center">
                 <span id="product-count" class="text-sm font-bold text-accent mr-1">0</span>
-                <span class="text-sm font-semibold text-slate-400">productos</span>
+                <span class="text-sm font-semibold text-slate-400 uppercase tracking-tighter">disponibles</span>
             </div>
         </div>
 
         <!-- Grid de Productos -->
         <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-            <!-- Cargando... -->
             <div class="col-span-full py-20 text-center">
                 <div class="inline-block w-8 h-8 border-4 border-accent border-t-transparent rounded-full animate-spin"></div>
             </div>
@@ -142,14 +139,33 @@
             </div>
             <h3 class="text-xl font-bold text-primary mb-2">No hay resultados</h3>
             <p class="text-slate-500 max-w-xs mx-auto mb-8">No encontramos lo que buscas. Intenta con otros términos.</p>
-            <button id="reset-filters" class="px-8 py-3 bg-primary text-white font-bold rounded-2xl hover:bg-accent transition-all shadow-lg">Ver Todo</button>
+            <button id="reset-filters" class="px-8 py-3 bg-primary text-white font-bold rounded-2xl hover:bg-accent transition-all shadow-lg uppercase text-xs tracking-widest">Ver Todo</button>
         </div>
     </main>
+
+    <!-- Modal para Detalles -->
+    <div id="product-modal" class="fixed inset-0 z-[60] hidden overflow-y-auto px-4 py-6 sm:px-0 flex items-center justify-center">
+        <!-- Backdrop -->
+        <div id="modal-backdrop" class="fixed inset-0 bg-slate-900/60 backdrop-blur-md transition-opacity duration-300 opacity-0"></div>
+        
+        <!-- Contenido Modal -->
+        <div id="modal-content" class="relative bg-white rounded-[2rem] shadow-2xl w-full max-w-4xl overflow-hidden transition-all duration-300 scale-95 opacity-0">
+            <button id="close-modal" class="absolute top-6 right-6 z-10 p-2 bg-slate-100 hover:bg-slate-200 rounded-full text-slate-500 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            
+            <div id="modal-body">
+                <!-- Se llena con JS -->
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="bg-white border-t border-slate-200 mt-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
-            <p class="text-slate-400 text-sm font-bold uppercase tracking-widest">© 2024 TechCatalog Digital. Todos los derechos reservados.</p>
+            <p class="text-slate-400 text-[10px] font-bold uppercase tracking-[0.2em]">© 2024 TechCatalog Premium. Experiencia de visualización de productos.</p>
         </div>
     </footer>
 
