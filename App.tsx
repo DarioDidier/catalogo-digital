@@ -1,8 +1,8 @@
 
 import React, { useState, useMemo } from 'react';
-import { products } from './data';
-import { Category } from './types';
-import ProductCard from './components/ProductCard';
+import { products } from './data.ts';
+import { Category } from './types.ts';
+import ProductCard from './components/ProductCard.tsx';
 
 const App: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
