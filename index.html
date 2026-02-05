@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catálogo Digital Moderno | TechCatalog</title>
     
-    <!-- Favicon inline para evitar error 404 -->
+    <!-- Favicon inline -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛒</text></svg>">
 
     <!-- Tailwind CSS Play CDN -->
@@ -34,8 +34,22 @@
           scroll-behavior: smooth;
         }
       }
+      #error-display {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: #fee2e2;
+        color: #b91c1c;
+        padding: 1rem;
+        z-index: 9999;
+        font-family: monospace;
+        border-bottom: 2px solid #ef4444;
+      }
     </style>
 
+    <!-- Import Map simplificado y sin conflictos -->
     <script type="importmap">
 {
   "imports": {
@@ -49,6 +63,17 @@
 </script>
 </head>
 <body>
+    <div id="error-display"></div>
     <div id="root"></div>
+
+    <!-- Script de ayuda para detectar errores en GitHub Pages -->
+    <script>
+      window.onerror = function(msg, url, lineNo, columnNo, error) {
+        const display = document.getElementById('error-display');
+        display.style.display = 'block';
+        display.innerHTML = `<strong>Error detectado:</strong> ${msg} <br><small>En: ${url}:${lineNo}</small>`;
+        return false;
+      };
+    </script>
 </body>
 </html>
